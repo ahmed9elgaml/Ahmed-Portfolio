@@ -123,15 +123,23 @@ Be direct. Say when there is a better way. Do not just agree.
 - Footer (in RootLayout, so on every page): AE. + © year + name · "Built with React, TypeScript & Tailwind · Source on GitHub" (this repo) · "Back to top" button (scrolls, then focuses the navbar logo). No mountain, no quote, no second photo: About already has the photo and the quote.
 - Resume: `profile.links.resume` is null until `public/resume.pdf` exists; while null, the navbar, mobile menu and Contact all hide their resume links.
 
+## Deployment readiness (audited 12 Nov 2026)
+
+- Build + lint pass; every route, case-study tab and the 404 page load with no console errors, broken images or horizontal scroll (desktop + phone); axe (WCAG 2 A/AA) is clean except the decorative code line numbers.
+- `--color-subtle` was raised #6f857a → #7c9488: the old one fell under 4.5:1 on the case study's tinted panels.
+- Favicon = the "AE." monogram drawn from Playfair Display outlines (no font needed), plus `apple-touch-icon.png`. `og-image.jpg` (1200×630) is the share preview; regenerate it if the photo, name or domain changes.
+- Both GitHub repos are public and every "In the code" path exists on Diraya's default branch (checked against a fresh clone).
+
 ## Before launch (placeholders that must not go public)
 
-- "Live demo" on the project page is a do-nothing button until `links.demo` is set in `data/projects.ts`
-- "Explore the technical details" scrolls to `#technical-details`, which doesn't exist until the deep dive is built
-- `data/projects.ts`: two cards for now (Diraya + a Diraya copy holding the second project's place), Diraya's problem text (check it's in Ahmed's words). Diraya's tagline, summary and first feature were reworded on 3 Nov 2026 (no student interface exists): "Platform for private tutors", and the parent reports (WhatsApp text + PDF) replaced "separate teacher and student dashboards". The Diraya repo (github.com/ahmed-sami9/Diraya) must be public.
+- "Live demo": always shown on the project page (Ahmed's call, 13 Nov 2026). Until `links.demo` is set in `data/projects.ts` it's a disabled button ("Demo coming soon" on hover); set the URL (and `demoNote`) once Diraya is deployed and it becomes a real link.
+- `data/projects.ts`: one card, Diraya (the placeholder copy was removed on 12 Nov 2026; a duplicate on a live site reads as a mistake). Add Circles when it is real. Diraya's problem text (check it's in Ahmed's words). Diraya's tagline, summary and first feature were reworded on 3 Nov 2026 (no student interface exists): "Platform for private tutors", and the parent reports (WhatsApp text + PDF) replaced "separate teacher and student dashboards". The Diraya repo (github.com/ahmed-sami9/Diraya) must be public.
 - `data/caseStudies/diraya.ts`: re-check against the Diraya code if Diraya changed since it was written
 - Resume: add `public/resume.pdf`, then set `profile.links.resume` to "/resume.pdf" (all resume links appear by themselves)
 - Name consistency: the site says Ahmed Elgaml; LinkedIn's shown name and custom URL should match
-- Hosting: SPA rewrite (every URL serves `index.html`)
+- Hosting: set the host's root directory to `frontend`. The SPA rewrite and security headers are in `frontend/vercel.json` (Vercel) and `frontend/public/_redirects` + `_headers` (Netlify, Cloudflare Pages).
+- Domain: `index.html` (canonical, og:url, og:image), `robots.txt`, `sitemap.xml` and the READMEs all say https://ahmedelgaml.com. Change them together if the domain changes. Add a line to `sitemap.xml` for each new project page.
+- After `git pull` of the 12 Nov 2026 changes: run `npm install` in `frontend` (the lockfile got security patch updates for build tools).
 - About TODOs: full-size photo file, English level after the EF SET.
 - Key decisions: every "In the code" link must open a pushed file on Diraya's default branch (repo public).
 - Challenges & lessons: the "lesson" lines are Claude's drafts; Ahmed rewrites them in his own words (TODO in `diraya.ts`).

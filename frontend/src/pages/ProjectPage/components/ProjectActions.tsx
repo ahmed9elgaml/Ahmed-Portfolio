@@ -11,8 +11,7 @@ type ProjectActionsProps = {
 //
 // "Live demo" always shows. Until the project has a demo URL in the data, it's a button that
 // does nothing, marked aria-disabled so screen readers say it's unavailable.
-// TEMPORARY: must be a real link (or removed) before the portfolio goes public.
-// See "Before launch" in CLAUDE.md.
+// Set `links.demo` in data/projects.ts once the demo is deployed, and it becomes a real link.
 function ProjectActions({ name, links }: ProjectActionsProps) {
   const { demo, demoNote, repo } = links;
   const primary =

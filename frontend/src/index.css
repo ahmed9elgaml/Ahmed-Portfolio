@@ -9,7 +9,7 @@
   --color-bg: #061713; /* page background */
   --color-text: #e8f0ea; /* headings, primary text */
   --color-muted: #9fb3a8; /* body copy, secondary text */
-  --color-subtle: #6f857a; /* captions, least important text */
+  --color-subtle: #7c9488; /* captions, least important text: still 4.5:1 on the tinted panels */
   --color-line: #2f4d43; /* hairlines, borders: bright enough that every card reads as a box */
   --color-accent: #d3bc80; /* labels, frame lines, small highlights */
   --color-accent-strong: #fccb86; /* primary button fill */

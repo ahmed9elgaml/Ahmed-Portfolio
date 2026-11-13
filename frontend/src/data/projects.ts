@@ -9,8 +9,7 @@ import { profile } from "./profile";
 export const projectsSection = {
   eyebrow: "My projects",
   title: "Things I’ve built",
-  description:
-    "A few things I’ve designed and built end to end, from the database to the interface.",
+  description: "Designed and built end to end, from the database to the interface.",
   // The section ends on a terminal line that links to GitHub
   moreLink: {
     label: "see more on github",
@@ -123,7 +122,7 @@ const diraya: Project = {
     },
   ],
   links: {
-    // demo: "https://...",   (once it's deployed)
+    // demo: "https://...",   (once it's deployed: "Live demo" becomes a real link)
     // demoNote: "You get your own sandbox account with sample data. No sign-up.",
     repo: "https://github.com/ahmed-sami9/Diraya", // must be public before launch
   },
@@ -131,8 +130,7 @@ const diraya: Project = {
 };
 
 // Order = display order. Put the strongest project first.
-// TEMPORARY: the second card is a Diraya copy, holding the place of the second real project.
-export const projects: Project[] = [diraya, { ...diraya, slug: "diraya-copy-2" }];
+export const projects: Project[] = [diraya];
 
 // The one place that knows the project page's URL shape.
 export const projectPath = (slug: string) => `/projects/${slug}`;
